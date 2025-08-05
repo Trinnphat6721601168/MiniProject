@@ -8,7 +8,7 @@ public final class Product {
     private final String productName;
     private final double price;
     
-    //RI:productID , productName ต้องไม่เป็นค่าว่าง(null/blank) ,price >= 0
+    //RI:productID , productName ต้องไม่เป็นค่าว่าง(null/blank) ,price > 0
     //AF:AF(productID, productName, price) = A product with the given ID, Name and price.
 
     /**
@@ -22,7 +22,7 @@ public final class Product {
         if (productName == null || productName.isBlank()) {
             throw new RuntimeException("RI violated: productName");
         }
-        if (price >= 0 ) {
+        if (price < 0 ) {
             throw new RuntimeException("RI violated: productID");
         }
     }
@@ -63,10 +63,4 @@ public final class Product {
         return productID.equals(product.productID);
     }
 
-     public void add(Product product) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
-     }
-
-     
 }

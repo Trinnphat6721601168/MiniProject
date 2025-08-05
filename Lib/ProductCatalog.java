@@ -4,23 +4,22 @@ import java.util.ArrayList;
      * คลาสทำหน้าที่เป็นแคททาล้อกสินค้า (Repository)
      */
 public class ProductCatalog {
-    private ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<Product> products=new ArrayList<>();
 
     //RI: product list is not null, contain no null element, and no duplicate products.
     //AF: AF(product) = A catalog of all available producrs.
 
     private void checkRep(){
-        if(products == null){
-            throw new RuntimeException("RI violated: product list cannot be null.");
+         if(products == null){
+            throw new RuntimeException("RI violated: product");
         }
-
-        // Check for dupplicate product
-        for (int i = 0; i < products.size(); i++) {
-            for (int j = 0; j < products.size(); j++) {
-                if(products.get(i).equals(products.get(j))){
-                    throw new  RuntimeException("RI violated: catalog contain duplicate products.");
-                }
-            }
+        //Check for duplicate products
+        for(int i=0;i<products.size();i++){
+        for(int j=i+1;j<products.size();j++){
+          if(products.get(i).equals(products.get(j))){
+            throw new RuntimeException("RI violated: product");
+          }
+         }
         }
     }
 
@@ -33,11 +32,10 @@ public class ProductCatalog {
      * @param product สินค้าที่ต้องการเพิ่ม
      */
     public void addProduct(Product product){
-        if(product != null && !products.contains(product)){
-            product.add(product);
-        }
-        checkRep();
+    if(product!=null&&!products.contains(product)){
+        products.add(product);
     }
+    checkRep();}
 
     /**
      * ค้นหาสินค้าจากรหัสสินค้า
