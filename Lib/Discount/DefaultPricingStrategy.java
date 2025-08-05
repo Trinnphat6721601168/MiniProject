@@ -1,5 +1,13 @@
 package Lib.Discount;
+import Lib.CartItem;
+/**
+ * การคิดราคาปกติ (ไม่มีส่วนลด)
+ */
+public class DefaultPricingStrategy implements DiscountStrategy {
 
-public class DefaultPricingStrategy {
+    @Override
+    public double calculatePrice(CartItem item) {
+       return item.getProduct().getPrice() * item.getQuantity();
+    }
     
 }

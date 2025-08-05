@@ -16,7 +16,7 @@ public class CartItem {
         if(product==null){
             throw new RuntimeException("RI violated: product cannot null");
         }
-        if(quantity<0){
+        if(quantity<=0){
             throw new RuntimeException("RI violated: quantity must be greater than zero");
         }
     }
